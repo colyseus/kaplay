@@ -1,0 +1,20 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "vite --mode dev",
+    "dev": "vite --mode dev",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "cloudflared": "cloudflared tunnel --url http://localhost:5173/"
+  },
+  "dependencies": {
+    "colyseus.js": "^0.15.26",
+    "kaplay": "^3001.0.0-beta.8"
+  },
+  "devDependencies": {
+    "cloudflared": "^0.5.3",
+    "vite": "^5.4.10"
+  }
+}

@@ -1,7 +1,7 @@
 import './index.css';
 import kaplay from 'kaplay'
-import { createLobbyScene } from './scenes/lobby';
 import { colyseusSDK } from "./core/colyseus";
+import { createLobbyScene } from './scenes/lobby';
 import type { MyRoomState } from '../../server/src/rooms/schema/MyRoomState';
 
 // Initialize kaplay

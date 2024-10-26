@@ -2,7 +2,7 @@
 
 Boilerplate to quickstart a project using [KAPLAY](https://kaplayjs.com/) and [Colyseus](https://colyseus.io/) Multiplayer Framework.
 
-> This project was made for first [KAJAM](https://itch.io/jam/kajam) + Colyseus challenge/collab.
+> This project was made for the first [KAJAM](https://itch.io/jam/kajam) + Colyseus challenge/collab.
 
 ## Running locally
 

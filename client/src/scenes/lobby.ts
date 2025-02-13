@@ -38,8 +38,8 @@ function createPlayer(player: Player, room: Room<MyRoomState>) {
   ]);
 
   sprite.onUpdate(() => {
-    sprite.pos.x += (player.x - sprite.pos.x) * 12 * k.dt();
-    sprite.pos.y += (player.y - sprite.pos.y) * 12 * k.dt();
+    sprite.pos.x = k.lerp(sprite.pos.x, player.x, 12 * k.dt());
+    sprite.pos.y = k.lerp(sprite.pos.y, player.y, 12 * k.dt());
   });
 
   return sprite;

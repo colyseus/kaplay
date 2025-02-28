@@ -4,12 +4,11 @@ import { MyRoomState, Player } from "./schema/MyRoomState";
 // list of avatars
 const avatars = ['dino', 'bean', 'bag', 'btfly', 'bobo', 'ghostiny', 'ghosty', 'mark'];
 
-export class MyRoom extends Room<MyRoomState> {
+export class MyRoom extends Room {
   maxClients = 4;
+  state = new MyRoomState();
 
   onCreate (options: any) {
-    this.setState(new MyRoomState());
-
     this.onMessage("move", (client, message) => {
       const player = this.state.players.get(client.sessionId);
       player.x = message.x;

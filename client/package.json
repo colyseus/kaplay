@@ -11,7 +11,7 @@
     "ngrok": "ngrok http 5173"
   },
   "dependencies": {
-    "colyseus.js": "^0.15.26",
+    "colyseus.js": "^0.16.0",
     "kaplay": "^3001.0.0-beta.8"
   },
   "devDependencies": {

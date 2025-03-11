@@ -18,5 +18,10 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/colyseus/, ''),
       },
     },
+    allowedHosts: [
+      '.trycloudflare.com',
+      '.ngrok-free.dev',
+      '.ngrok-free.app',
+    ],
   },
 });

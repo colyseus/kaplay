@@ -1,22 +1,22 @@
 import { k } from "../App";
 
-import { getStateCallbacks, Room } from "colyseus.js";
+import { Callbacks, Room } from "@colyseus/sdk";
 import type { MyRoomState, Player } from "../../../server/src/rooms/schema/MyRoomState";
 
 export function createLobbyScene() {
   k.scene("lobby", (room: Room<MyRoomState>) => {
-    const $ = getStateCallbacks(room);
+    const callbacks = Callbacks.get(room);
 
     // keep track of player sprites
     const spritesBySessionId: Record<string, any> = {};
 
     // listen when a player is added on server state
-    $(room.state).players.onAdd((player, sessionId) => {
+    callbacks.onAdd("players", (player, sessionId) => {
       spritesBySessionId[sessionId] = createPlayer(player);
     });
 
     // listen when a player is removed from server state
-    $(room.state).players.onRemove((player, sessionId) => {
+    callbacks.onRemove("players", (player, sessionId) => {
       k.destroy(spritesBySessionId[sessionId]);
     });
 

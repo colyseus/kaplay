@@ -7,19 +7,25 @@ const avatars = ['glady', 'dino', 'bean', 'bag', 'btfly', 'bobo', 'ghostiny', 'g
 export class MyRoom extends Room {
   maxClients = 4;
   state = new MyRoomState();
-
-  onCreate (options: any) {
-    this.onMessage("move", (client, message) => {
+  
+  /**
+   * Handle messages from clients
+   */
+  messages = {
+    move: (client: Client, message: any) => {
       const player = this.state.players.get(client.sessionId);
       player.x = message.x;
       player.y = message.y;
-    });
-
-    this.onMessage("type", (client, message) => {
+    },
+    type: (client: Client, message: any) => {
       //
       // handle "type" message
       //
-    });
+    }
+  }
+
+  onCreate (options: any) {
+    // room created!
   }
 
   onJoin (client: Client, options: any) {
@@ -35,7 +41,7 @@ export class MyRoom extends Room {
     this.state.players.set(client.sessionId, player);
   }
 
-  onLeave (client: Client, consented: boolean) {
+  onLeave (client: Client, code: number) {
     console.log(client.sessionId, "left!");
 
     this.state.players.delete(client.sessionId);

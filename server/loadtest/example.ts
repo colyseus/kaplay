@@ -1,4 +1,4 @@
-import { Client, Room } from "colyseus.js";
+import { Client, Room } from "@colyseus/sdk";
 import { cli, Options } from "@colyseus/loadtest";
 
 export async function main(options: Options) {

@@ -26,6 +26,7 @@ describe("testing your Colyseus app", () => {
     // wait for state sync
     await room.waitForNextPatch();
 
-    assert.deepStrictEqual({ mySynchronizedProperty: "Hello world" }, client1.state.toJSON());
+    // the joining client is registered as a player
+    assert.ok(client1.state.players.get(client1.sessionId));
   });
 });

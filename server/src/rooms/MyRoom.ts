@@ -1,10 +1,10 @@
-import { Room, Client } from "@colyseus/core";
+import { Room, Client, CloseCode } from "colyseus";
 import { MyRoomState, Player } from "./schema/MyRoomState";
 
 // list of avatars
 const avatars = ['glady', 'dino', 'bean', 'bag', 'btfly', 'bobo', 'ghostiny', 'ghosty', 'mark'];
 
-export class MyRoom extends Room {
+export class MyRoom extends Room<{ state: MyRoomState }> {
   maxClients = 4;
   state = new MyRoomState();
   
@@ -41,7 +41,7 @@ export class MyRoom extends Room {
     this.state.players.set(client.sessionId, player);
   }
 
-  onLeave (client: Client, code: number) {
+  onLeave (client: Client, code: CloseCode) {
     console.log(client.sessionId, "left!");
 
     this.state.players.delete(client.sessionId);

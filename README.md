@@ -6,6 +6,8 @@ Boilerplate to quickstart a project using [KAPLAY](https://kaplayjs.com/) and [C
 
 ## Running locally
 
+Requires **Node.js 22+** (Colyseus 0.18).
+
 Open 2 terminal windows, one for the client and one for the server. Install the dependencies and run the development server.
 
 **Start the client:**
